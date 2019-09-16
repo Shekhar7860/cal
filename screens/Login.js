@@ -80,14 +80,15 @@ export default class Login extends Component {
     this.props.navigation.pop()
    }
 
-   forgotpassword = () => 
+   signUp = () => 
    {
-    this.props.navigation.navigate('forgot')
+    this.props.navigation.navigate('Register')
    }
    submit = () => {
        if (this.state.email && this.state.password)
        {
-           alert("logging in")
+           alert("loggin successfully")
+           this.props.navigation.navigate('Profile')
        }
        else
        {
@@ -143,18 +144,11 @@ export default class Login extends Component {
                     <Text style={styles.buttonText} onPress={() => this.submit()}>Submit</Text>
                 </TouchableOpacity>
 
-                 <TouchableOpacity  onPress={() => this.forgotpassword()}><Text style={{fontSize:20, color:'#588029'}}>Forgot Password ?</Text></TouchableOpacity>
+                 <TouchableOpacity  onPress={() => this.signUp()}><Text style={{fontSize:20, color:'#588029'}}>New User ? Sign Up Here </Text></TouchableOpacity>
                 </View>
 
  <View style={styles.footer}>
-       <Banner
-       style={{alignSelf:'center',marginLeft:20}}
-    size={"SMALL_BANNER"}
-  unitId={"ca-app-pub-2457999726327943/3435901721"}
-  request={request.build()}
-  onAdLoaded={() => {
-    console.log('Advert loaded');
-  }} />
+       
   </View>
            
 

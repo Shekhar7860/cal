@@ -6,8 +6,10 @@ import Icon from 'react-native-vector-icons/Octicons';
 class DrawerContent extends Component {
   state = {
     channels: [
-      { screen: 'HomeScreen', title: 'Home', icon: 'home' },
-      { screen: 'RankingScreen', title: 'Ranking', icon: 'list-ordered' },
+ 
+       { screen: 'Profile Screen', title: 'Profile', icon: 'person' },
+        { screen: 'Log Out Screen', title: 'Log Out', icon: 'home' },
+      
     ],
   };
 

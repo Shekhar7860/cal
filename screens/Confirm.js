@@ -9,7 +9,7 @@ const advert2 = firebase.admob().rewarded('ca-app-pub-3550043356338169/572203058
 const advert = firebase.admob().interstitial('ca-app-pub-3550043356338169/2336678711')
 const request = new AdRequest();
 request.addKeyword('foobar');
-export default class Welcome extends Component {
+export default class Confirm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -70,7 +70,7 @@ export default class Welcome extends Component {
         <View style={styles.mainContainer}>
                <View style={styles.toolbar}>
                     <Text style={styles.toolbarButton}></Text>
-                    <Text style={styles.toolbarTitle}>Welcome</Text>
+                    <Text style={styles.toolbarTitle}>Confirm</Text>
                     <TouchableOpacity onPress={() => this.openMenu()}>
                     <Text style={styles.toolbarButton}></Text>
                     </TouchableOpacity>
@@ -80,23 +80,11 @@ export default class Welcome extends Component {
  
                     <View style={styles.messageBox}>
                        
-                            <Text style={styles.topText}>Welcome Mesage</Text>
+                            <Text style={styles.topText}>Success</Text>
                        
-                            <Text style={styles.messageBoxBodyText}>Hello, This application can help you to calculate GPA (Global Point Average). If you obtain higher GPA, you can get admission in top colleges in Bangladesh</Text>
+                            <Text style={styles.messageBoxBodyText}>Thankyou for verifying OTP, Now, you can log into the app and calculate GPA, Thank You</Text>
                            
-                            <TouchableHighlight style={styles.fullWidthButton} onPress={() => this.goToPage('Login')}>
-            <Text style={styles.fullWidthButtonText}>Login</Text>
-            </TouchableHighlight>
-            <TouchableHighlight style={styles.fullWidthButton} onPress={() => this.goToPage('Apply')}>
-            <Text style={styles.fullWidthButtonText}>Apply</Text>
-            </TouchableHighlight>
-            <TouchableHighlight style={styles.fullWidthButton} onPress={() => this.goToPage('CollegeFees')}>
-            <Text style={styles.fullWidthButtonText}>College Fees</Text>
-            </TouchableHighlight>
-            <TouchableHighlight style={styles.fullWidthButton} onPress={() => this.goToPage('SignUp')}>
-            <Text style={styles.fullWidthButtonText}>GPS Calculator</Text>
-            </TouchableHighlight>
-            
+                           
           
                     </View>
 

@@ -16,8 +16,11 @@ import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import SplashScreen from 'react-native-splash-screen';
 import Users from './screens/Users';
 import Add from './screens/Add'
+import Register from './screens/Register'
 import SignUp from './screens/SignUp'
 import Login from './screens/Login'
+import Otp from './screens/Otp'
+import Confirm from './screens/Confirm'
 import Apply from './screens/Apply'
 import CollegeFees from './screens/CollegeFees'
 import Slider from './screens/Slider'
@@ -25,11 +28,12 @@ import Welcome from './screens/Welcome'
 import DrawerContent from './screens/DrawerContent'
 import Edit from './screens/Edit'
 import Splash from './screens/Splash'
+import Profile from './screens/Profile'
 const HomeScreenRouter = DrawerNavigator(
   {
     customerHome: { screen: SignUp,
       },
-      Welcome: { screen: Welcome
+      Profile: { screen: Profile
       }
   },
   {
@@ -45,12 +49,18 @@ const AppNavigator = StackNavigator(
   {
     Splash: { screen: Splash
   },
+   Confirm : { screen: Confirm
+  },
+    
+    Register: { screen: Register
+  },
    Slider : { screen: Slider
   },
     SignUp: { screen: SignUp
   },
-   
+   Welcome : { screen : Welcome },
      Login : { screen: Login },
+    Otp : { screen: Otp },
     Apply : { screen: Apply },
     CollegeFees : {screen: HomeScreenRouter}
 }, { headerMode: 'none' })

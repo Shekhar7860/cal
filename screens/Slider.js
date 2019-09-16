@@ -111,7 +111,7 @@ const slides = [
   {
     key: 's3',
     title: 'Eligibility Criteria for Study Medical in Bangladesh',
-    text: '1. Candidate must have NEET qualifying marks. NEET UG Minimum Qualifying Percentile UR – 50th Percentile, SC/ST/OBC – 40th Percentile 2. Students must pass-out HSC 12 board exam in year 2019 or 2018.  3. Aspirant must pass-out SSC 10 exam in 2017 or 2016.  4. Students must score 60 percent and above in PCB in HSC .5. Candidates must have 60 percent and above in Biology (Life Science) in HSC. 6. Student must have 7 GPA or above considering both HSC (12) and SSC (10)',
+    text: '1. Candidate must have NEET qualifying marks i.e – at least  50th Percentile, SC/ST/OBC – 40th Percentile 2. Students must pass-out HSC 12 board exam in year 2019/2018.  3. Aspirant must pass-out SSC 10 exam in 2017 or 2016.  ',
     image: {
       uri: 'https://www.mbbsbangladesh.com/wp-content/uploads/2019/06/doctor-2-1-1.jpg',
     },

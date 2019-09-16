@@ -327,8 +327,9 @@ cardContainerSignUp:{
     profilePic:{
       marginTop:20,
       borderRadius:100,
-      width:80,
-     height:80
+      width:120,
+     height:120,
+     alignSelf : 'center'
     },
     userName:{
       paddingTop:padding.sm,

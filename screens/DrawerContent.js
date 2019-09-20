@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavigationActions } from 'react-navigation';
-import { ScrollView, TouchableOpacity, Text, View } from 'react-native';
+import { ScrollView, TouchableOpacity, Text, View, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
 
 class DrawerContent extends Component {
@@ -14,12 +14,29 @@ class DrawerContent extends Component {
   };
 
   navigateToScreen = route => () => {
-    const navigate = NavigationActions.navigate({
-      routeName: route,
-    });
-    this.props.navigation.dispatch(navigate);
+   console.log(route)
+   if(route == "Log Out Screen" )
+   {
+    Alert.alert(
+      'Log Out',
+      'Are you Sure? You want to Log Out', [{
+          text: 'Cancel',
+          style: 'cancel'
+      },
+      {
+          text: 'OK',
+          onPress: () => 
+          this.exit()
+      }, ], {
+          cancelable: false
+      }
+   )
+   }
   };
 
+  exit = () => {
+    this.props.navigation.navigate('Login')
+  }
   renderChannelButtons() {
     return this.state.channels.map(({ screen, title, icon }) => (
       <TouchableOpacity

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, Text, View, TextInput, Image, ImageBackground, TouchableOpacity, StatusBar, ScrollView, TouchableNativeFeedback} from 'react-native';
 import styles from './styles.js';
-
+import { LoginManager,   AccessToken } from 'react-native-fbsdk';
 export default class Register extends Component {
 
   constructor(props){
@@ -18,9 +18,29 @@ export default class Register extends Component {
       mobileError:'',
       emailFormatError:'',
       loading: false,
-      cardheight:300
+      cardheight:300,
+      email : ""
     }
     
+  }
+
+  fbSignIn = () =>{
+    LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
+      result => {
+        if(result.isCancelled == false)
+        {
+        AccessToken.getCurrentAccessToken().then(
+          (data) => {
+            console.log('userDATA', data)
+            this.props.navigation.navigate('Otp');
+             //   this.getUserProfile(data.accessToken);
+        });
+       }
+      },
+      error => {
+        console.log('Login fail with error: ' + error);
+      }
+    );
   }
 
     openMenu = () => {
@@ -28,7 +48,7 @@ export default class Register extends Component {
   }
 
    submit = () => {
-       if (this.state.name && this.state.cls && this.state.city && this.state.age && this.state.mobile)
+       if (this.state.name && this.state.email && this.state.mobile )
        {
            alert("registered SuccessFully")
            this.props.navigation.navigate('Otp');
@@ -88,6 +108,8 @@ export default class Register extends Component {
   
    // alert(this.state.password)
    }
+
+  
    goBack = () =>{
     this.props.navigation.pop()
    }
@@ -97,7 +119,9 @@ export default class Register extends Component {
     
       <View style={{flex:1}}>
          <View style={styles.toolbar}>
-         <Text style={styles.toolbarButton}></Text>
+         <TouchableOpacity onPress={() => this.goBack()}>
+                    <Image style={{width:30,marginLeft:5,  height:30}}source={require('../images/back.png')}></Image>
+                    </TouchableOpacity>
                     <Text style={styles.toolbarTitle}>Register</Text>
                         <Text style={styles.toolbarButton}></Text>
                 </View>
@@ -122,57 +146,44 @@ export default class Register extends Component {
                 
 
      <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:20}}>
-                <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/class.png')}></Image>
+     <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/email1.png')}></Image>
                  <TextInput style={styles.inputBox}
-                onChangeText={(cls) => this.setState({cls})}
+                onChangeText={(email) => this.setState({email})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="class"
+                placeholder="Email Address"
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="email-address"
-               />
+                onSubmitEditing={()=> this.password.focus()}/>
                 </View>
 
- <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:20}}>
-                <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/city.png')}></Image>
-                <TextInput style={styles.inputBox}
-                onChangeText={(city) => this.setState({city})}
-                underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="City"
-                placeholderTextColor = "#95A5A6"
-                selectionColor="#fff"
-                keyboardType="email-address"
-               />
-                </View>
-
-
-                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:20}}>
-                <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/city.png')}></Image>
-                <TextInput style={styles.inputBox}
-                onChangeText={(mobile) => this.setState({mobile})}
-                underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="Mobile"
-                placeholderTextColor = "#95A5A6"
-                selectionColor="#fff"
-                keyboardType="numberpad"
-               />
-                </View>
 
                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:20}}>
-                <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/age.png')}></Image>
-                <TextInput style={styles.inputBox}
-                onChangeText={(age) => this.setState({age})}
+     <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/email1.png')}></Image>
+                 <TextInput style={styles.inputBox}
+                onChangeText={(mobile) => this.setState({mobile})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="Age"
+                placeholder="Phone Number"
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
-                keyboardType="email-address"
-               />
+                keyboardType="number-pad"
+                />
                 </View>
+
+ 
+
+
+               
+
+               
                   
  
                 <TouchableOpacity style={styles.button}> 
                     <Text style={styles.buttonText} onPress={() => this.submit()}>Submit</Text>
+                </TouchableOpacity>
+<Text style={{marginTop:10, alignSelf:'center', fontSize:20}}>    OR </Text>
+                <TouchableOpacity style={styles.button}> 
+                    <Text style={styles.buttonText} onPress={() => this.fbSignIn()}>Login With FaceBook</Text>
                 </TouchableOpacity>
                 </View>
                </ScrollView>

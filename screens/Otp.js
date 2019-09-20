@@ -42,7 +42,7 @@ import {colors, fonts, padding, dimensions, align} from './base.js';
  
    gotoSignIn = () =>
     {
-      this.props.navigation.navigate('Login')
+      this.props.navigation.navigate('Register')
     }
 
     openLogin = () =>
@@ -54,7 +54,7 @@ import {colors, fonts, padding, dimensions, align} from './base.js';
 
     GetFourthValue = (value) =>
      {
-        this.props.navigation.navigate('Confirm')
+        this.props.navigation.navigate('Profile')
        }
 
     GetValueFunction = (ValueHolder) =>{

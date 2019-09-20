@@ -157,6 +157,30 @@ toolbarTitle:{
 searchIcon: {
     padding: padding.sm,
 },
+otpButton:{
+  marginTop:50,
+  backgroundColor:colors.themeColor,
+  width:"65%",
+  borderRadius:25,
+  height:40,
+  alignItems:align.center,
+  justifyContent:align.center
+},
+accountButtonText:{
+  textAlign:align.center,
+  fontSize:15,
+  color:colors.white,
+  fontFamily: fonts.themeFont,
+},
+lookingButtonBackground:{
+  marginTop:35,
+  backgroundColor:colors.themeColor,
+  width:"65%",
+  borderRadius:25,
+  height:40,
+  alignItems:align.center,
+  justifyContent:align.center
+},
 input: {
     flex: 1,
     paddingTop: padding.sm,
@@ -164,7 +188,7 @@ input: {
     paddingBottom: padding.sm,
     paddingLeft: 0,
     backgroundColor: colors.white,
-    color: '#424242',
+   borderWidth :1
 },
 icon:{
   width:20,

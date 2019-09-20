@@ -28,7 +28,7 @@ export default class Profile extends Component {
   }
 
    submit = () => {
-       if (this.state.name && this.state.cls && this.state.city && this.state.age && this.state.mobile)
+       if (this.state.name && this.state.email && this.state.mobile )
        {
            alert("profile updated successfully")
            // this.props.navigation.navigate('Profile')
@@ -122,55 +122,33 @@ export default class Profile extends Component {
 
                 
 
-     <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:20}}>
-                <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/class.png')}></Image>
+                <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:20}}>
+     <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/email1.png')}></Image>
                  <TextInput style={styles.inputBox}
-                onChangeText={(cls) => this.setState({cls})}
+                onChangeText={(email) => this.setState({email})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="class"
+                placeholder="Email Address"
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="email-address"
                 onSubmitEditing={()=> this.password.focus()}/>
                 </View>
 
- <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:20}}>
-                <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/city.png')}></Image>
-                <TextInput style={styles.inputBox}
-                onChangeText={(city) => this.setState({city})}
-                underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="City"
-                placeholderTextColor = "#95A5A6"
-                selectionColor="#fff"
-                keyboardType="email-address"
-                onSubmitEditing={()=> this.password.focus()}/>
-                </View>
-
-
-                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:20}}>
-                <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/city.png')}></Image>
-                <TextInput style={styles.inputBox}
-                onChangeText={(mobile) => this.setState({mobile})}
-                underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="Mobile"
-                placeholderTextColor = "#95A5A6"
-                selectionColor="#fff"
-                keyboardType="numberpad"
-                onSubmitEditing={()=> this.password.focus()}/>
-                </View>
 
                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:20}}>
-                <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/age.png')}></Image>
-                <TextInput style={styles.inputBox}
-                onChangeText={(age) => this.setState({age})}
+     <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/email1.png')}></Image>
+                 <TextInput style={styles.inputBox}
+                onChangeText={(mobile) => this.setState({mobile})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="Age"
+                placeholder="Phone Number"
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
-                keyboardType="email-address"
-                onSubmitEditing={()=> this.password.focus()}/>
+                keyboardType="number-pad"
+                />
                 </View>
-                  
+
+
+                
  
                 <TouchableOpacity style={styles.button}> 
                     <Text style={styles.buttonText} onPress={() => this.submit()}>Submit</Text>

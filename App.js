@@ -47,7 +47,7 @@ const HomeScreenRouter = DrawerNavigator(
 );
 const AppNavigator = StackNavigator(
   {
-    Splash: { screen: Splash
+    Splash: { screen: Welcome
   },
    Confirm : { screen: Confirm
   },
@@ -62,7 +62,7 @@ const AppNavigator = StackNavigator(
      Login : { screen: Login },
     Otp : { screen: Otp },
     Apply : { screen: Apply },
-    CollegeFees : {screen: HomeScreenRouter}
+    CollegeFees : {screen: CollegeFees}
 }, { headerMode: 'none' })
 
 

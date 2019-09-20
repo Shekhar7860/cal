@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import firebase from 'react-native-firebase';
 const Banner = firebase.admob.Banner;
 const AdRequest = firebase.admob.AdRequest;
+import { LoginManager,   AccessToken } from 'react-native-fbsdk';
 import { InterstitialAdManager, NativeAdsManager,  BannerView, AdSettings  } from 'react-native-fbads';
 const advert2 = firebase.admob().rewarded('ca-app-pub-3550043356338169/5722030580')
 const advert = firebase.admob().interstitial('ca-app-pub-3550043356338169/2336678711')
@@ -64,6 +65,26 @@ export default class Welcome extends Component {
       ]
     })
   }
+
+
+  fbSignIn = () =>{
+    LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
+      result => {
+        if(result.isCancelled == false)
+        {
+        AccessToken.getCurrentAccessToken().then(
+          (data) => {
+            console.log('userDATA', data)
+                this.getUserProfile(data.accessToken);
+        });
+       }
+      },
+      error => {
+        console.log('Login fail with error: ' + error);
+      }
+    );
+  }
+
   render() {
     const { navigate } = this.props.navigation
     return (
@@ -94,7 +115,7 @@ export default class Welcome extends Component {
             <Text style={styles.fullWidthButtonText}>College Fees</Text>
             </TouchableHighlight>
             <TouchableHighlight style={styles.fullWidthButton} onPress={() => this.goToPage('SignUp')}>
-            <Text style={styles.fullWidthButtonText}>GPS Calculator</Text>
+            <Text style={styles.fullWidthButtonText}>GPA Calculator</Text>
             </TouchableHighlight>
             
           

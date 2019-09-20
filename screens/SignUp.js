@@ -98,69 +98,240 @@ export default class SignuUp extends Component {
          <TouchableOpacity onPress={() => this.goBack()}>
                     <Image style={{width:30,marginLeft:5,  height:30}}source={require('../images/back.png')}></Image>
                     </TouchableOpacity>
-                    <Text style={styles.toolbarTitle}>Calculator</Text>
+                    <Text style={styles.toolbarTitle}>GPA Calculator</Text>
                     <Text style={styles.toolbarButton}></Text>
                 </View>
+                <ScrollView>
                 <View style={{alignItems:'center', marginTop:20}}>
 
                  <TextInput style={styles.inputBox}
                 onChangeText={(stname) => this.setState({stname})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="Student Name"
+                placeholder="Student Name (required)"
+                editable={false} selectTextOnFocus={false}
                 placeholderTextColor = "#002f6c"
                 selectionColor="#fff"
                 keyboardType="email-address"
-                onSubmitEditing={()=> this.password.focus()}/>
+               />
+                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100}}>
+                <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/name.png')}></Image>
+                 <TextInput style={styles.inputBox}
+                onChangeText={(name) => this.setState({name})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Student Name (required)"
+                placeholderTextColor = "#95A5A6"
+                selectionColor="#fff"
+                keyboardType="email-address"
+                />
+                </View>
+                <TextInput style={styles.inputBox}
+                onChangeText={(stname) => this.setState({stname})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Parent/Guardian Name (required)"
+                editable={false} selectTextOnFocus={false}
+                placeholderTextColor = "#002f6c"
+                selectionColor="#fff"
+                keyboardType="email-address"
+               />
+                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100}}>
+                <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/name.png')}></Image>
+                 <TextInput style={styles.inputBox}
+                onChangeText={(name) => this.setState({name})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Parent/Guardian Name"
+                placeholderTextColor = "#95A5A6"
+                selectionColor="#fff"
+                keyboardType="email-address"
+                />
+                </View>
+
+                <TextInput style={styles.inputBox}
+                onChangeText={(stname) => this.setState({stname})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Your Email (required)"
+                editable={false} selectTextOnFocus={false}
+                placeholderTextColor = "#002f6c"
+                selectionColor="#fff"
+                keyboardType="email-address"
+               />
+                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100}}>
+                <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/email1.png')}></Image>
+                 <TextInput style={styles.inputBox}
+                onChangeText={(name) => this.setState({name})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Your Email"
+                placeholderTextColor = "#95A5A6"
+                selectionColor="#fff"
+                keyboardType="email-address"
+                />
+                </View>
+
+                <TextInput style={styles.inputBox}
+                onChangeText={(stname) => this.setState({stname})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Your Phone"
+                editable={false} selectTextOnFocus={false}
+                placeholderTextColor = "#002f6c"
+                selectionColor="#fff"
+                
+               />
+                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100}}>
+                <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/mobile.png')}></Image>
+                 <TextInput style={styles.inputBox}
+                onChangeText={(name) => this.setState({name})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Your Phone"
+                placeholderTextColor = "#95A5A6"
+                selectionColor="#fff"
+                keyboardType="number-pad"
+                />
+                </View>
+
+                <TextInput style={styles.inputBox}
+                onChangeText={(stname) => this.setState({stname})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="NEET SCORE (optional)"
+                editable={false} selectTextOnFocus={false}
+                placeholderTextColor = "#002f6c"
+                selectionColor="#fff"
+                
+               />
+                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100}}>
+                <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/class.png')}></Image>
+                 <TextInput style={styles.inputBox}
+                onChangeText={(name) => this.setState({name})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="NEET SCORE"
+                placeholderTextColor = "#95A5A6"
+                selectionColor="#fff"
+                keyboardType="number-pad"
+                />
+                </View>
 
                  <TextInput style={styles.inputBox}
                 onChangeText={(ptname) => this.setState({ptname})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="Parent/Guardian Name"
+                placeholder="Marks Obtained In Class 10/SSC/X/O Level : Put Best Five Marks Obtained"
                 placeholderTextColor = "#002f6c"
                 selectionColor="#fff"
+                editable={false} selectTextOnFocus={false}
                 keyboardType="email-address"
-                onSubmitEditing={()=> this.password.focus()}/>
-
+                />
+                <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100}}>
+                
                  <TextInput style={styles.inputBox}
-                onChangeText={(mobile) => this.setState({mobile})}
+                onChangeText={(name) => this.setState({name})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="Phone Number"
-                placeholderTextColor = "#002f6c"
+                placeholder="Subject1"
+                placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="number-pad"
-                onSubmitEditing={()=> this.password.focus()}/>
-
-                  <TextInput style={styles.inputBox}
-                onChangeText={(score) => this.setState({score})}
+                />
+                </View>
+                <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
+                
+                 <TextInput style={styles.inputBox}
+                onChangeText={(name) => this.setState({name})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="NEET Score"
-                placeholderTextColor = "#002f6c"
+                placeholder="Subject2"
+                placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="number-pad"
-                onSubmitEditing={()=> this.password.focus()}/>
+                />
+                </View>
+                <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
+                
+                 <TextInput style={styles.inputBox}
+                onChangeText={(name) => this.setState({name})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Subject3"
+                placeholderTextColor = "#95A5A6"
+                selectionColor="#fff"
+                keyboardType="number-pad"
+                />
+                </View>
+                <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
+                
+                 <TextInput style={styles.inputBox}
+                onChangeText={(name) => this.setState({name})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Subject4"
+                placeholderTextColor = "#95A5A6"
+                selectionColor="#fff"
+                keyboardType="number-pad"
+                />
+                </View>
+                <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
+                
+                 <TextInput style={styles.inputBox}
+                onChangeText={(name) => this.setState({name})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Subject5"
+                placeholderTextColor = "#95A5A6"
+                selectionColor="#fff"
+                keyboardType="number-pad"
+                />
+                </View>
 
                 <TextInput style={styles.inputBox}
-                onChangeText={(email) => this.setState({email})}
+                onChangeText={(ptname) => this.setState({ptname})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="Email"
+                placeholder="Marks Obtained In Class 12/HSC/X/A Level :"
                 placeholderTextColor = "#002f6c"
                 selectionColor="#fff"
+                editable={false} selectTextOnFocus={false}
                 keyboardType="email-address"
-                onSubmitEditing={()=> this.password.focus()}/>
+                />
+                <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
                 
                 <TextInput style={styles.inputBox}
-                onChangeText={(level) => this.setState({level})} 
+               onChangeText={(name) => this.setState({name})}
+               underlineColorAndroid='rgba(0,0,0,0)' 
+               placeholder="Biology (Botany + Zoology)"
+               placeholderTextColor = "#95A5A6"
+               selectionColor="#fff"
+               keyboardType="number-pad"
+               />
+               </View>
+               <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
+                
+                 <TextInput style={styles.inputBox}
+                onChangeText={(name) => this.setState({name})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="Level"
-                secureTextEntry={true}
-                placeholderTextColor = "#002f6c"
-                ref={(input) => this.password = input}
+                placeholder="Physics"
+                placeholderTextColor = "#95A5A6"
+                selectionColor="#fff"
+                keyboardType="number-pad"
                 />
+                </View>
+                <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
+                
+                 <TextInput style={styles.inputBox}
+                onChangeText={(name) => this.setState({name})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Chemistry"
+                placeholderTextColor = "#95A5A6"
+                selectionColor="#fff"
+                keyboardType="number-pad"
+                />
+                </View>
+
+                
  
                 <TouchableOpacity style={styles.button}> 
-                    <Text style={styles.buttonText} onPress={() => this.submit()}>Submit</Text>
+                    <Text style={styles.buttonText} onPress={() => this.submit()}>Calculate</Text>
                 </TouchableOpacity>
+                <TextInput style={styles.inputBox}
+                onChangeText={(ptname) => this.setState({ptname})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="OTP Please check your phone/Email"
+                placeholderTextColor = "#002f6c"
+                selectionColor="#fff"
+                editable={false} selectTextOnFocus={false}
+                keyboardType="email-address"
+                />
                 </View>
+                </ScrollView>
                 <View style={styles.footer}>
        <Banner
        style={{alignSelf:'center',marginLeft:20}}

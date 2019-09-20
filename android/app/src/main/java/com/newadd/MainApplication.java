@@ -1,7 +1,7 @@
 package com.vestigeproductslist;
 
 import android.app.Application;
-
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.facebook.react.ReactApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
@@ -15,10 +15,15 @@ import java.util.Arrays;
 import java.util.List;
 import io.invertase.firebase.messaging.RNFirebaseMessagingPackage; 
 import io.invertase.firebase.RNFirebasePackage;
+import com.facebook.CallbackManager;
 import io.invertase.firebase.database.RNFirebaseDatabasePackage;
 import io.invertase.firebase.storage.RNFirebaseStoragePackage;
 public class MainApplication extends Application implements ReactApplication {
+private static CallbackManager mCallbackManager = CallbackManager.Factory.create();
 
+  protected static CallbackManager getCallbackManager() {
+    return mCallbackManager;
+  }
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
     public boolean getUseDeveloperSupport() {
@@ -36,7 +41,9 @@ public class MainApplication extends Application implements ReactApplication {
           new FBAdsPackage(),
           new RNFirebaseDatabasePackage(),
           new RNFirebaseStoragePackage(),
-            new RNFirebaseMessagingPackage()
+            new RNFirebaseMessagingPackage(),
+            new FBSDKPackage(mCallbackManager)
+
       );
     }
 

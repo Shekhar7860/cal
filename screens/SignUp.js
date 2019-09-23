@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Platform, Text, View, TextInput, Image, ImageBackground, TouchableOpacity, StatusBar, ScrollView, TouchableNativeFeedback} from 'react-native';
+import {Platform, Picker, Text, View, TextInput, Image, ImageBackground, TouchableOpacity, StatusBar, ScrollView, TouchableNativeFeedback} from 'react-native';
 import styles from './styles.js';
+import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button'
 import firebase from 'react-native-firebase';
 const Banner = firebase.admob.Banner;
 const AdRequest = firebase.admob.AdRequest;
@@ -90,7 +91,14 @@ export default class SignuUp extends Component {
         alert("please fill all details")
     }
 }
+
+
   render() {
+
+    var radio_props = [
+  {label: 'UR', value: 0 },
+  {label: 'OBC/SC/ST', value: 1 }
+];
     return (
     
       <View style={{flex:1}}>
@@ -315,8 +323,100 @@ export default class SignuUp extends Component {
                 keyboardType="number-pad"
                 />
                 </View>
+<TextInput style={styles.inputBox}
+                onChangeText={(ptname) => this.setState({ptname})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Category (required)"
+                placeholderTextColor = "#002f6c"
+                selectionColor="#fff"
+                editable={false} selectTextOnFocus={false}
+                keyboardType="email-address"
+                />
+                  <RadioForm
+                  style={{marginTop:10, justifyContent:'space-around'}}
+          radio_props={radio_props}
+          initial={0}
+           formHorizontal={true}
+          onPress={(value) => {this.setState({value:value})}}
+        />
 
+<TextInput style={styles.inputBox}
+                onChangeText={(ptname) => this.setState({ptname})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Year Of Passing Class 10/SSC/X/O Level (required)"
+                placeholderTextColor = "#002f6c"
+                selectionColor="#fff"
+                editable={false} selectTextOnFocus={false}
+                keyboardType="email-address"
+                />
+ <Picker style={styles.pickerStyle}  
+                        selectedValue={this.state.language}  
+                        onValueChange={(itemValue, itemPosition) =>  
+                            this.setState({language: itemValue, choosenIndex: itemPosition})}  
+                    >  
+                    <Picker.Item label="Choose Year" value="year" />  
+                    <Picker.Item label="2010" value="2010" />  
+                    <Picker.Item label="2011" value="2011" />  
+                     <Picker.Item label="2012" value="2012" />  
+                    <Picker.Item label="2013" value="2013" />  
+                     <Picker.Item label="2014" value="2014" />  
+                    <Picker.Item label="2015" value="2015" />  
+                     <Picker.Item label="2016" value="2016" />  
+                    <Picker.Item label="2017" value="2017" />  
+                     <Picker.Item label="2018" value="2018" />  
+                    <Picker.Item label="2019" value="2019" />  
+                     <Picker.Item label="2020" value="2020" />  
+                    <Picker.Item label="2021" value="2021" />  
+                     <Picker.Item label="2022" value="2022" />  
+                    <Picker.Item label="2023" value="2023" />  
+                     <Picker.Item label="2024" value="2024" />  
+                    <Picker.Item label="2025" value="2025" />  
+                     <Picker.Item label="2026" value="2026" />  
+                    <Picker.Item label="2027" value="2027" />  
+                     <Picker.Item label="2028" value="2028" />  
+                    <Picker.Item label="2029" value="2029" />  
+                     <Picker.Item label="2030" value="2030" />  
+                   
+                </Picker>  
                 
+                <TextInput style={styles.inputBox}
+                onChangeText={(ptname) => this.setState({ptname})}
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Year Of Passing Class 12/HSC/X11/A Level (required)"
+                placeholderTextColor = "#002f6c"
+                selectionColor="#fff"
+                editable={false} selectTextOnFocus={false}
+                keyboardType="email-address"
+                />
+ <Picker style={styles.pickerStyle}  
+                        selectedValue={this.state.language}  
+                        onValueChange={(itemValue, itemPosition) =>  
+                            this.setState({language: itemValue, choosenIndex: itemPosition})}  
+                    >  
+                    <Picker.Item label="Choose Year" value="year" />  
+                    <Picker.Item label="2010" value="2010" />  
+                    <Picker.Item label="2011" value="2011" />  
+                     <Picker.Item label="2012" value="2012" />  
+                    <Picker.Item label="2013" value="2013" />  
+                     <Picker.Item label="2014" value="2014" />  
+                    <Picker.Item label="2015" value="2015" />  
+                     <Picker.Item label="2016" value="2016" />  
+                    <Picker.Item label="2017" value="2017" />  
+                     <Picker.Item label="2018" value="2018" />  
+                    <Picker.Item label="2019" value="2019" />  
+                     <Picker.Item label="2020" value="2020" />  
+                    <Picker.Item label="2021" value="2021" />  
+                     <Picker.Item label="2022" value="2022" />  
+                    <Picker.Item label="2023" value="2023" />  
+                     <Picker.Item label="2024" value="2024" />  
+                    <Picker.Item label="2025" value="2025" />  
+                     <Picker.Item label="2026" value="2026" />  
+                    <Picker.Item label="2027" value="2027" />  
+                     <Picker.Item label="2028" value="2028" />  
+                    <Picker.Item label="2029" value="2029" />  
+                     <Picker.Item label="2030" value="2030" />  
+                   
+                </Picker>  
  
                 <TouchableOpacity style={styles.button}> 
                     <Text style={styles.buttonText} onPress={() => this.submit()}>Calculate</Text>

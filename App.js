@@ -47,7 +47,7 @@ const HomeScreenRouter = DrawerNavigator(
 );
 const AppNavigator = StackNavigator(
   {
-    Splash: { screen: Welcome
+    Splash: { screen: Splash
   },
    Confirm : { screen: Confirm
   },

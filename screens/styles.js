@@ -30,6 +30,18 @@ export default styles = StyleSheet.create({
       flexDirection:'row',
       flex:1,  
     },
+     textStyle:{  
+        margin: 24,  
+        fontSize: 25,  
+        fontWeight: 'bold',  
+        textAlign: 'center',  
+    },  
+    pickerStyle:{  
+        height: 50,  
+        width: "80%",  
+        color: '#344953',  
+        justifyContent: 'center',  
+    }  ,
     col:{
       flexDirection:'row',
        flexWrap:'wrap'

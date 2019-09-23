@@ -27,18 +27,20 @@ export default class Register extends Component {
   fbSignIn = () =>{
     LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
       result => {
-        if(result.isCancelled == false)
-        {
-        AccessToken.getCurrentAccessToken().then(
-          (data) => {
-            console.log('userDATA', data)
-            this.props.navigation.navigate('Otp');
-             //   this.getUserProfile(data.accessToken);
-        });
-       }
+        console.log(result, 'rest')
+        this.props.navigation.navigate('Otp');
+       //  if(result.isCancelled == false)
+       //  {
+       //  AccessToken.getCurrentAccessToken().then(
+       //    (data) => {
+       //      console.log('userDATA', data)
+            
+       //       //   this.getUserProfile(data.accessToken);
+       //  });
+       // }
       },
       error => {
-        console.log('Login fail with error: ' + error);
+        alert('Login fail with error: ' + error);
       }
     );
   }

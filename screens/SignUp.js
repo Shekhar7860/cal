@@ -19,12 +19,13 @@ export default class SignuUp extends Component {
       confirmPasswordError:'',
       passwordError:'',
       emailFormatError:'',
-      mobileError:'',
+      phone:'',
       emailFormatError:'',
       loading: false,
        stname : "",
-       ptname : "",
-       score : ""
+       parentname : "",
+       score : "",
+       value : 1
     }
     
   }
@@ -63,7 +64,7 @@ export default class SignuUp extends Component {
       this.setState(() => ({ cardheight:300}));
     }
 
-    if(this.state.email && this.state.password && this.state.mobile && this.state.confirmPassword && service.validateEmail(this.state.email))
+    if(this.state.stname && this.state.email && this.state.phone && this.state.value )
     {
       
      this.setState ({ loading: true});
@@ -82,9 +83,10 @@ export default class SignuUp extends Component {
    }
 
    submit = () => {
-    if (this.state.email && this.state.level && this.state.stname && this.state.ptname && this.state.score && this.state.mobile)
+     console.log(this.state.email  , this.state.stname ,  this.state.phone, this.state.parentname, this.state.value)
+    if (this.state.email  && this.state.stname &&  this.state.phone && this.state.parentname && this.state.value )
     {
-        alert("logging in")
+        alert("calculating!please wait")
     }
     else
     {
@@ -113,7 +115,7 @@ export default class SignuUp extends Component {
                 <View style={{alignItems:'center', marginTop:20}}>
 
                  <TextInput style={styles.inputBox}
-                onChangeText={(stname) => this.setState({stname})}
+               
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="Student Name (required)"
                 editable={false} selectTextOnFocus={false}
@@ -124,7 +126,7 @@ export default class SignuUp extends Component {
                  <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100}}>
                 <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/name.png')}></Image>
                  <TextInput style={styles.inputBox}
-                onChangeText={(name) => this.setState({name})}
+                onChangeText={(stname) => this.setState({stname})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="Student Name (required)"
                 placeholderTextColor = "#95A5A6"
@@ -133,7 +135,7 @@ export default class SignuUp extends Component {
                 />
                 </View>
                 <TextInput style={styles.inputBox}
-                onChangeText={(stname) => this.setState({stname})}
+              
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="Parent/Guardian Name (required)"
                 editable={false} selectTextOnFocus={false}
@@ -144,7 +146,7 @@ export default class SignuUp extends Component {
                  <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100}}>
                 <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/name.png')}></Image>
                  <TextInput style={styles.inputBox}
-                onChangeText={(name) => this.setState({name})}
+                onChangeText={(parentname) => this.setState({parentname})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="Parent/Guardian Name"
                 placeholderTextColor = "#95A5A6"
@@ -154,7 +156,7 @@ export default class SignuUp extends Component {
                 </View>
 
                 <TextInput style={styles.inputBox}
-                onChangeText={(stname) => this.setState({stname})}
+              
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="Your Email (required)"
                 editable={false} selectTextOnFocus={false}
@@ -165,7 +167,7 @@ export default class SignuUp extends Component {
                  <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100}}>
                 <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/email1.png')}></Image>
                  <TextInput style={styles.inputBox}
-                onChangeText={(name) => this.setState({name})}
+                onChangeText={(email) => this.setState({email})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="Your Email"
                 placeholderTextColor = "#95A5A6"
@@ -177,7 +179,7 @@ export default class SignuUp extends Component {
                 <TextInput style={styles.inputBox}
                 onChangeText={(stname) => this.setState({stname})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="Your Phone"
+                placeholder="Your Phone (required)"
                 editable={false} selectTextOnFocus={false}
                 placeholderTextColor = "#002f6c"
                 selectionColor="#fff"
@@ -186,9 +188,9 @@ export default class SignuUp extends Component {
                  <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100}}>
                 <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/mobile.png')}></Image>
                  <TextInput style={styles.inputBox}
-                onChangeText={(name) => this.setState({name})}
+                onChangeText={(phone) => this.setState({phone})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="Your Phone"
+                placeholder="Your Phone "
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="number-pad"
@@ -207,7 +209,7 @@ export default class SignuUp extends Component {
                  <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100}}>
                 <Image style={{width:25,marginLeft:20, marginTop:15,  height:25}}source={require('../images/class.png')}></Image>
                  <TextInput style={styles.inputBox}
-                onChangeText={(name) => this.setState({name})}
+                onChangeText={(score) => this.setState({score})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="NEET SCORE"
                 placeholderTextColor = "#95A5A6"
@@ -228,7 +230,7 @@ export default class SignuUp extends Component {
                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100}}>
                 
                  <TextInput style={styles.inputBox}
-                onChangeText={(name) => this.setState({name})}
+                onChangeText={(sub1) => this.setState({sub1})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="Subject1"
                 placeholderTextColor = "#95A5A6"
@@ -239,7 +241,7 @@ export default class SignuUp extends Component {
                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
                 
                  <TextInput style={styles.inputBox}
-                onChangeText={(name) => this.setState({name})}
+                onChangeText={(sub2) => this.setState({sub2})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="Subject2"
                 placeholderTextColor = "#95A5A6"
@@ -250,7 +252,7 @@ export default class SignuUp extends Component {
                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
                 
                  <TextInput style={styles.inputBox}
-                onChangeText={(name) => this.setState({name})}
+                onChangeText={(sub3) => this.setState({sub3})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="Subject3"
                 placeholderTextColor = "#95A5A6"
@@ -261,7 +263,7 @@ export default class SignuUp extends Component {
                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
                 
                  <TextInput style={styles.inputBox}
-                onChangeText={(name) => this.setState({name})}
+                onChangeText={(sub4) => this.setState({sub4})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="Subject4"
                 placeholderTextColor = "#95A5A6"
@@ -272,7 +274,7 @@ export default class SignuUp extends Component {
                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
                 
                  <TextInput style={styles.inputBox}
-                onChangeText={(name) => this.setState({name})}
+                onChangeText={(sub5) => this.setState({sub5})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="Subject5"
                 placeholderTextColor = "#95A5A6"
@@ -282,7 +284,7 @@ export default class SignuUp extends Component {
                 </View>
 
                 <TextInput style={styles.inputBox}
-                onChangeText={(ptname) => this.setState({ptname})}
+                onChangeText={(twl12) => this.setState({twl12})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="Marks Obtained In Class 12/HSC/X/A Level :"
                 placeholderTextColor = "#002f6c"
@@ -293,7 +295,7 @@ export default class SignuUp extends Component {
                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
                 
                 <TextInput style={styles.inputBox}
-               onChangeText={(name) => this.setState({name})}
+               onChangeText={(bio) => this.setState({bio})}
                underlineColorAndroid='rgba(0,0,0,0)' 
                placeholder="Biology (Botany + Zoology)"
                placeholderTextColor = "#95A5A6"
@@ -304,7 +306,7 @@ export default class SignuUp extends Component {
                <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
                 
                  <TextInput style={styles.inputBox}
-                onChangeText={(name) => this.setState({name})}
+                onChangeText={(phy) => this.setState({phy})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="Physics"
                 placeholderTextColor = "#95A5A6"
@@ -315,7 +317,7 @@ export default class SignuUp extends Component {
                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
                 
                  <TextInput style={styles.inputBox}
-                onChangeText={(name) => this.setState({name})}
+                onChangeText={(che) => this.setState({che})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="Chemistry"
                 placeholderTextColor = "#95A5A6"
@@ -324,7 +326,7 @@ export default class SignuUp extends Component {
                 />
                 </View>
 <TextInput style={styles.inputBox}
-                onChangeText={(ptname) => this.setState({ptname})}
+                onChangeText={(cat) => this.setState({cat})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="Category (required)"
                 placeholderTextColor = "#002f6c"
@@ -350,7 +352,7 @@ export default class SignuUp extends Component {
                 keyboardType="email-address"
                 />
  <Picker style={styles.pickerStyle}  
-                        selectedValue={this.state.language}  
+                        selectedValue={this.state.picker1}  
                         onValueChange={(itemValue, itemPosition) =>  
                             this.setState({language: itemValue, choosenIndex: itemPosition})}  
                     >  
@@ -389,7 +391,7 @@ export default class SignuUp extends Component {
                 keyboardType="email-address"
                 />
  <Picker style={styles.pickerStyle}  
-                        selectedValue={this.state.language}  
+                        selectedValue={this.state.picker2}  
                         onValueChange={(itemValue, itemPosition) =>  
                             this.setState({language: itemValue, choosenIndex: itemPosition})}  
                     >  
@@ -422,7 +424,7 @@ export default class SignuUp extends Component {
                     <Text style={styles.buttonText} onPress={() => this.submit()}>Calculate</Text>
                 </TouchableOpacity>
                 <TextInput style={styles.inputBox}
-                onChangeText={(ptname) => this.setState({ptname})}
+                onChangeText={(otp) => this.setState({otp})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="OTP Please check your phone/Email"
                 placeholderTextColor = "#002f6c"

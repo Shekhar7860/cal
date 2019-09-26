@@ -49,7 +49,7 @@ const AppNavigator = StackNavigator(
   {
     Splash: { screen: Splash
   },
-   Confirm : { screen: Confirm
+   Confirm : { screen: HomeScreenRouter
   },
     
     Register: { screen: Register
@@ -62,7 +62,8 @@ const AppNavigator = StackNavigator(
      Login : { screen: Login },
     Otp : { screen: Otp },
     Apply : { screen: Apply },
-    CollegeFees : {screen: CollegeFees}
+    CollegeFees : {screen: CollegeFees},
+
 }, { headerMode: 'none' })
 
 

@@ -108,15 +108,15 @@ export default class Welcome extends Component {
                             <TouchableHighlight style={styles.fullWidthButton} onPress={() => this.goToPage('Login')}>
             <Text style={styles.fullWidthButtonText}>Login</Text>
             </TouchableHighlight>
-            <TouchableHighlight style={styles.fullWidthButton} onPress={() => this.goToPage('Apply')}>
-            <Text style={styles.fullWidthButtonText}>Apply</Text>
+            <TouchableHighlight style={styles.fullWidthButton} onPress={() => this.goToPage('Register')}>
+            <Text style={styles.fullWidthButtonText}>Register</Text>
             </TouchableHighlight>
-            <TouchableHighlight style={styles.fullWidthButton} onPress={() => this.goToPage('CollegeFees')}>
+            {/* <TouchableHighlight style={styles.fullWidthButton} onPress={() => this.goToPage('CollegeFees')}>
             <Text style={styles.fullWidthButtonText}>College Fees</Text>
             </TouchableHighlight>
             <TouchableHighlight style={styles.fullWidthButton} onPress={() => this.goToPage('SignUp')}>
             <Text style={styles.fullWidthButtonText}>GPA Calculator</Text>
-            </TouchableHighlight>
+            </TouchableHighlight> */}
             
           
                     </View>

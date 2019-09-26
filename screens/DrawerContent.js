@@ -8,7 +8,10 @@ class DrawerContent extends Component {
     channels: [
  
        { screen: 'Profile Screen', title: 'Profile', icon: 'person' },
-        { screen: 'Log Out Screen', title: 'Log Out', icon: 'home' },
+       { screen: 'GPA Calculator Screen', title: 'GPA Calculator', icon: 'checklist' },
+       { screen: 'College Fees Screen', title: 'College Fees Screen', icon: 'file-submodule' },
+       { screen: 'Apply Screen', title: 'Apply Screen', icon: 'broadcast' }, 
+       { screen: 'Log Out Screen', title: 'Log Out', icon: 'home' },
       
     ],
   };
@@ -31,6 +34,24 @@ class DrawerContent extends Component {
           cancelable: false
       }
    )
+   }
+   else if (route == "GPA Calculator Screen")
+   {
+   
+      this.props.navigation.navigate("SignUp")
+   
+   }
+   else if (route == "College Fees Screen")
+   {
+   
+      this.props.navigation.navigate('CollegeFees')
+   
+   }
+   else if (route == "Apply Screen")
+   {
+   
+      this.props.navigation.navigate('Apply')
+   
    }
   };
 

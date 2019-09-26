@@ -28,7 +28,7 @@ export default class Register extends Component {
     LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
       result => {
         console.log(result, 'rest')
-        this.props.navigation.navigate('Otp');
+        this.props.navigation.navigate('Profile');
        //  if(result.isCancelled == false)
        //  {
        //  AccessToken.getCurrentAccessToken().then(

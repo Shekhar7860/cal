@@ -12,7 +12,7 @@ export default class SignuUp extends Component {
   constructor(props){
     super(props);
     this.state = { 
-      email:'',
+      email:'Your Email (required)',
       password:'',
       mobile:'',
       confirmPassword:'',
@@ -21,11 +21,20 @@ export default class SignuUp extends Component {
       emailFormatError:'',
       phone:'',
       emailFormatError:'',
+       sub : "Subject1",
       loading: false,
-       stname : "",
-       parentname : "",
-       score : "",
-       value : 1
+       stname : "Student name (required)",
+       parentname : "Parent/Guardian Name (required)",
+       score : "Your Phone (required)",
+       value : 1,
+      
+       sub2 : "Subject2",
+      sub3 : "Subject3",
+      sub4 : "Subject4",
+      sub5 : "Subject5",
+      phy : "Physics",
+      bio : "Biology",
+      che : "Chemistry"
     }
     
   }
@@ -128,10 +137,12 @@ export default class SignuUp extends Component {
                  <TextInput style={styles.inputBox}
                 onChangeText={(stname) => this.setState({stname})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="Student Name (required)"
+                placeholder="Student name (required)"
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="email-address"
+                onFocus= {() => this.setState({stname : " "})}
+                 value={this.state.stname}
                 />
                 </View>
                 <TextInput style={styles.inputBox}
@@ -152,6 +163,8 @@ export default class SignuUp extends Component {
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="email-address"
+                onFocus= {() => this.setState({parentname : " "})}
+                 value={this.state.parentname}
                 />
                 </View>
 
@@ -169,10 +182,12 @@ export default class SignuUp extends Component {
                  <TextInput style={styles.inputBox}
                 onChangeText={(email) => this.setState({email})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="Your Email"
+                placeholder="Your Email (required)"
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="email-address"
+                 onFocus= {() => this.setState({email : " "})}
+                 value={this.state.email}
                 />
                 </View>
 
@@ -190,10 +205,12 @@ export default class SignuUp extends Component {
                  <TextInput style={styles.inputBox}
                 onChangeText={(phone) => this.setState({phone})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="Your Phone "
+                placeholder="Your Phone (required"
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="number-pad"
+                onFocus= {() => this.setState({phone : " "})}
+                 value={this.state.phone}
                 />
                 </View>
 
@@ -211,10 +228,12 @@ export default class SignuUp extends Component {
                  <TextInput style={styles.inputBox}
                 onChangeText={(score) => this.setState({score})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="NEET SCORE"
+                placeholder="NEET SCORE (optional)"
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="number-pad"
+                onFocus= {() => this.setState({score: " "})}
+                 value={this.state.score}
                 />
                 </View>
 
@@ -230,12 +249,14 @@ export default class SignuUp extends Component {
                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100}}>
                 
                  <TextInput style={styles.inputBox}
-                onChangeText={(sub1) => this.setState({sub1})}
+                onChangeText={(sub) => this.setState({sub})}
                 underlineColorAndroid='rgba(0,0,0,0)' 
                 placeholder="Subject1"
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="number-pad"
+             onFocus= {() => this.setState({sub: " "})}
+                 value={this.state.sub}
                 />
                 </View>
                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
@@ -247,6 +268,8 @@ export default class SignuUp extends Component {
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="number-pad"
+                onFocus= {() => this.setState({sub2: " "})}
+                 value={this.state.sub2}
                 />
                 </View>
                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
@@ -258,6 +281,8 @@ export default class SignuUp extends Component {
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="number-pad"
+                  onFocus= {() => this.setState({sub3: " "})}
+                 value={this.state.sub3}
                 />
                 </View>
                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
@@ -269,6 +294,8 @@ export default class SignuUp extends Component {
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="number-pad"
+                onFocus= {() => this.setState({sub4: " "})}
+                 value={this.state.sub4}
                 />
                 </View>
                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
@@ -280,6 +307,8 @@ export default class SignuUp extends Component {
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="number-pad"
+                onFocus= {() => this.setState({sub5: " "})}
+                 value={this.state.sub5}
                 />
                 </View>
 
@@ -301,6 +330,8 @@ export default class SignuUp extends Component {
                placeholderTextColor = "#95A5A6"
                selectionColor="#fff"
                keyboardType="number-pad"
+               onFocus= {() => this.setState({bio: " "})}
+                 value={this.state.bio}
                />
                </View>
                <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
@@ -312,6 +343,8 @@ export default class SignuUp extends Component {
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="number-pad"
+                onFocus= {() => this.setState({phy: " "})}
+                 value={this.state.phy}
                 />
                 </View>
                 <View style={{flexDirection:'row',  borderWidth : 1, width:'80%', backgroundColor : '#ffffff', borderRadius:100, marginTop:10}}>
@@ -323,6 +356,8 @@ export default class SignuUp extends Component {
                 placeholderTextColor = "#95A5A6"
                 selectionColor="#fff"
                 keyboardType="number-pad"
+                onFocus= {() => this.setState({che: " "})}
+                 value={this.state.che}
                 />
                 </View>
 <TextInput style={styles.inputBox}
@@ -333,6 +368,8 @@ export default class SignuUp extends Component {
                 selectionColor="#fff"
                 editable={false} selectTextOnFocus={false}
                 keyboardType="email-address"
+                onFocus= {() => this.setState({cat: " "})}
+                 value={this.state.cat}
                 />
                   <RadioForm
                   style={{marginTop:10, justifyContent:'space-around'}}
@@ -354,7 +391,7 @@ export default class SignuUp extends Component {
  <Picker style={styles.pickerStyle}  
                         selectedValue={this.state.picker1}  
                         onValueChange={(itemValue, itemPosition) =>  
-                            this.setState({language: itemValue, choosenIndex: itemPosition})}  
+                            this.setState({picker1: itemValue, choosenIndex: itemPosition})}  
                     >  
                     <Picker.Item label="Choose Year" value="year" />  
                     <Picker.Item label="2010" value="2010" />  
@@ -393,7 +430,7 @@ export default class SignuUp extends Component {
  <Picker style={styles.pickerStyle}  
                         selectedValue={this.state.picker2}  
                         onValueChange={(itemValue, itemPosition) =>  
-                            this.setState({language: itemValue, choosenIndex: itemPosition})}  
+                            this.setState({picker2: itemValue, choosenIndex: itemPosition})}  
                     >  
                     <Picker.Item label="Choose Year" value="year" />  
                     <Picker.Item label="2010" value="2010" />  
@@ -434,16 +471,7 @@ export default class SignuUp extends Component {
                 />
                 </View>
                 </ScrollView>
-                <View style={styles.footer}>
-       <Banner
-       style={{alignSelf:'center',marginLeft:20}}
-    size={"SMALL_BANNER"}
-  unitId={"ca-app-pub-2457999726327943/8752996954"}
-  request={request.build()}
-  onAdLoaded={() => {
-    console.log('Advert loaded');
-  }} />
-  </View>
+                
       
       
       </View>

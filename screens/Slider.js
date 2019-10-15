@@ -4,16 +4,55 @@ import { StyleSheet, View, Text, Image } from 'react-native';
 //import all the required component
 import AppIntroSlider from 'react-native-app-intro-slider';
 //import AppIntroSlider to use it
+import Service from './Service';
 export default class Slider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       showRealApp: false,
+      data : []
       //To show the main page of the app
     };
+    service = new Service();
   }
 
-  
+  getList = () => {
+    service.sliderData().then((res) => {
+      console.log(res);
+      console.log(res);
+      const regex = /(<([^>]+)>)/ig;
+      for(i=0; i< res.length ; i++) {
+        console.log(res[i].title.rendered, 'sjjsj')
+        console.log(res[i].content.rendered, 'sjjsj')
+       
+        this.state.data.push({title : res[i].title.rendered, text : res[i].content.rendered.replace(regex, ''), image: {
+          uri: "https://www.mbbsbangladesh.com/wp-content/uploads/2019/06/doctor-2-1-1.jpg"},  backgroundColor: '#22bcb5'})
+      }
+
+      console.log(this.state.data, 'arra')
+      // if(res.status_code)
+      // {
+      //     if(res.status == "success")
+      //     {
+      //       this.refs.defaultToastBottom.ShowToastFunction('Login Successfully');
+      //       // service.saveUserData('user', res.user-details);
+      //       this.goToHome();
+      //     }
+      //     else
+      //     {
+      //       this.refs.defaultToastBottom.ShowToastFunction('Wrong Mobile Or Password');
+      //     }
+      // }
+      // else 
+      // {
+      //   this.refs.defaultToastBottom.ShowToastFunction('Network Error');
+      // }
+
+      })
+  }
+  componentDidMount = () => {
+    this.getList();
+  }
   _onDone = () => {
     this.props.navigation.navigate('Welcome')
   };
@@ -58,7 +97,7 @@ export default class Slider extends React.Component {
       //Intro slides
       return (
         <AppIntroSlider
-          slides={slides}
+          slides={this.state.data}
           renderItem={this._renderItem}
           onDone={this._onDone}
           showSkipButton={true}

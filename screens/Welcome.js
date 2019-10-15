@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import firebase from 'react-native-firebase';
 const Banner = firebase.admob.Banner;
 const AdRequest = firebase.admob.AdRequest;
+import Service from './Service';
 import { LoginManager,   AccessToken } from 'react-native-fbsdk';
 import { InterstitialAdManager, NativeAdsManager,  BannerView, AdSettings  } from 'react-native-fbads';
 const advert2 = firebase.admob().rewarded('ca-app-pub-3550043356338169/5722030580')
@@ -18,8 +19,35 @@ export default class Welcome extends Component {
       statusArray:[],
       loading:true
     };
+
+    service = new Service();
+  }
+
+  getList = () => {
+    service.sliderData().then((res) => {
+      console.log(res);
+      // if(res.status_code)
+      // {
+      //     if(res.status == "success")
+      //     {
+      //       this.refs.defaultToastBottom.ShowToastFunction('Login Successfully');
+      //       // service.saveUserData('user', res.user-details);
+      //       this.goToHome();
+      //     }
+      //     else
+      //     {
+      //       this.refs.defaultToastBottom.ShowToastFunction('Wrong Mobile Or Password');
+      //     }
+      // }
+      // else 
+      // {
+      //   this.refs.defaultToastBottom.ShowToastFunction('Network Error');
+      // }
+
+      })
   }
   componentDidMount = () => {
+    this.getList();
   //  AdSettings.addTestDevice(AdSettings.currentDeviceHash);
 //     advert.loadAd(request.build());
 //     advert2.loadAd(request.build())
